@@ -32,15 +32,15 @@ node('php'){
     }
 
     stage('Docker Build') {
-        sh 'docker build -t ekson73/laravel:$BUILD_NUMBER .'
+        sh 'docker build -t ekson73/laravel:$BRANCH_NAME-$BUILD_NUMBER .'
     }
 
     stage('Docker Ship') {
-        sh 'docker push ekson73/laravel:$BUILD_NUMBER'
+        sh 'docker push ekson73/laravel:$BRANCH_NAME-$BUILD_NUMBER'
     }
 
     stage('Docker Clean') {
-        sh 'docker rmi -f ekson73/laravel:$BUILD_NUMBER'
+        sh 'docker rmi -f ekson73/laravel:$BRANCH_NAME-$BUILD_NUMBER'
     }
     
     stage('Final Clean'){
