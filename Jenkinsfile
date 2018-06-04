@@ -1,5 +1,5 @@
 node('php'){
-    stage('Clean'){
+    stage('Initial Clean'){
         deleteDir()
         sh 'ls -la'
     }
@@ -39,8 +39,8 @@ node('php'){
         sh 'docker push ekson73/laravel:$BUILD_NUMBER'
     }
     
-    stage('Clean'){
-        deleteDir()
+    stage('Final Clean'){
+        // deleteDir()
         sh 'ls -la'
     }
 }
