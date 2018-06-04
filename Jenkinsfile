@@ -38,6 +38,10 @@ node('php'){
     stage('Docker Ship') {
         sh 'docker push ekson73/laravel:$BUILD_NUMBER'
     }
+
+    stage('Docker Clean') {
+        sh 'docker rmi -f ekson73/laravel:$BUILD_NUMBER'
+    }
     
     stage('Final Clean'){
         // deleteDir()
