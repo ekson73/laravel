@@ -39,7 +39,7 @@ node('php'){
         sh 'docker push ekson73/laravel:$BUILD_NUMBER'
     }
     
-    stage('Docker Cleanup') {
+    stage('Docker Clean') {
         sh 'docker rmi -f ekson73/laravel:$BUILD_NUMBER'
     }
 }
